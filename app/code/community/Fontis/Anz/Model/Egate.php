@@ -195,6 +195,8 @@ class Fontis_Anz_Model_Egate extends Mage_Payment_Model_Method_Cc
             $amount = $amount / 100;
         }
 
+        // bug description: http://gondo.webdesigners.sk/fontis-anz-extension-critical-bug/
+        $amount = round($amount);
         $request = array();
         $request['vpc_Version'] = '1';
         $request['vpc_MerchTxnRef'] = $payment->getCcTransId();
