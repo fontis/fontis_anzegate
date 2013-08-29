@@ -174,6 +174,8 @@ class Fontis_Anz_Model_Egate extends Mage_Payment_Model_Method_Cc
                 Mage::throwException("Error code " . $result['vpc_TxnResponseCode'] . ": " . urldecode($result['vpc_Message']));
             }
         }
+
+        return $this;
     }
 
     protected function _call($type, Varien_Object $payment)
@@ -210,7 +212,7 @@ class Fontis_Anz_Model_Egate extends Mage_Payment_Model_Method_Cc
 
         if($type == self::TRANS_TYPE_REFUND) {
             $request['vpc_Command'] = 'refund';
-            $request['vpc_TransNo'] = $payment->getLastTransId();
+            $request['vpc_TransNo'] = $payment->getRefundTransactionId();
             $request['vpc_Amount'] = htmlentities($amount);
         } else {
             $request['vpc_Command'] = 'pay';
