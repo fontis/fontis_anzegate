@@ -1,0 +1,6 @@
+# modman module description
+# see https://github.com/colinmollenhour/modman/ for more info
+
+# Fontis Anz eGate
+src/app/code/community/Fontis/Anz   app/code/community/Fontis/Anz
+src/app/etc/modules/Fontis_Anz.xml  app/etc/modules/Fontis_Anz.xml
